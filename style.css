@@ -49,6 +49,14 @@
     list-style: none;
     padding-left: 0px;
   }
+
+  button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
   /* Typography */
   h1{
     font-size: var(--font-large);
@@ -119,4 +127,33 @@
 }
 .navbar__menu__item:hover{
     background-color: var(--color-dark-pink);
+}
+
+/* Home */
+#home{
+    background: url('imgs/home-background.png') center/cover no-repeat;
+    padding: 40px;
+    text-align: center;
+}
+
+#home .home__avatar{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light-white);
+}
+
+#home .home__title,
+#home .home__description{
+    color: var(--color-white);
+}
+
+#home .home__contact{
+    color: var(--color-white);
+    font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    margin: 24px;
+    padding: 12px;
+    border: 2px solid var(--color-white);
+    border-radius: 4px;
 }
