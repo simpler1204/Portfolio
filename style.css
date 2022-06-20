@@ -471,9 +471,31 @@
     color: var(--color-yellow);
 }
 
+.arrow-up{
+    position: fixed;
+    font-size: 50px;  
+    bottom: 50px;
+    right: 40px;
+    background-color: pink;
+    color: var(--color-white);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 10px;    
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--animation-druation) ease-in;
+}
+.arrow-up.visible{
+    opacity: 1;
+    pointer-events:auto;
+    /* cursor: pointer; */
+}
+
 @media screen and (max-width: 768px){
     .navbar__toggle-btn{
-        display: block;
+        display: block;      
     }
     #navbar{
         flex-direction: column;

@@ -43,7 +43,7 @@ const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 
 document.addEventListener('scroll', ()=>{
-    console.log(1 - window.scrollY/homeHeight);
+    // console.log(1 - window.scrollY/homeHeight);
     { //아래 모두 같음
         home.style.opacity =  1 - window.scrollY/homeHeight;              
        // document.querySelector('.home__container').style.opacity = 1 - window.scrollY/homeHeight;
@@ -51,6 +51,22 @@ document.addEventListener('scroll', ()=>{
 
 })
 
+
+//Show arrow-up button when scrolling down
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', ()=>{
+    console.log(window.scrollY, homeHeight / 2);
+    if(window.scrollY > (homeHeight / 2)){
+        arrowUp.classList.add('visible'); 
+    }else{
+        arrowUp.classList.remove('visible');
+    }
+})
+
+//Handle click on the "arrow-up" button
+arrowUp.addEventListener('click', ()=>{
+    scrollToSelector('#home');
+})
 
 
 function scrollToSelector(selection){
