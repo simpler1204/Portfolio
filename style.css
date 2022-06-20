@@ -115,6 +115,7 @@
     background-color: transparent;
     padding: 16px;
     transition: all var(--animation-druation) ease-in-out;
+    z-index: 1;
 }
 #navbar.navbar--dark{
      background-color: var(--color-pink);
