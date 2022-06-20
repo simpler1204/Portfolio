@@ -16,6 +16,7 @@ document.addEventListener('scroll', ()=>{
 })
 
 
+
 //Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event)=>{
@@ -34,6 +35,23 @@ const homeContact = document.querySelector('.home__contact');
 homeContact.addEventListener('click', ()=>{
     scrollToSelector('#contact')
 })
+
+
+
+//Make home slowly face to transparent as the window scrolls down
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll', ()=>{
+    console.log(1 - window.scrollY/homeHeight);
+    { //아래 모두 같음
+        home.style.opacity =  1 - window.scrollY/homeHeight;              
+       // document.querySelector('.home__container').style.opacity = 1 - window.scrollY/homeHeight;
+    }
+
+})
+
+
 
 function scrollToSelector(selection){
     const scrollTo = document.querySelector(selection);
