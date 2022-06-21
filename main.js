@@ -55,7 +55,7 @@ document.addEventListener('scroll', ()=>{
 //Show arrow-up button when scrolling down
 const arrowUp = document.querySelector('.arrow-up');
 document.addEventListener('scroll', ()=>{
-    console.log(window.scrollY, homeHeight / 2);
+    // console.log(window.scrollY, homeHeight / 2);
     if(window.scrollY > (homeHeight / 2)){
         arrowUp.classList.add('visible'); 
     }else{
@@ -67,6 +67,41 @@ document.addEventListener('scroll', ()=>{
 arrowUp.addEventListener('click', ()=>{
     scrollToSelector('#home');
 })
+
+
+// Project
+
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project'); //project 클래스 모두를 가져와 배열로 만든다.
+
+workBtnContainer.addEventListener('click', (e)=>{
+    
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    // => e.target.dataset.filter에 값이 없으면 e.target.parentNode.dataset.filter에서 값을 가져온다
+    // 신기하네..
+
+    if(filter == null){
+        return;
+    }
+
+    projectContainer.classList.add('anim-out');
+    
+    
+   setTimeout(()=>{
+    projects.forEach((project) =>{
+        // console.log(project.dataset.type);
+        if(filter === '*' || filter === project.dataset.type){
+            project.classList.remove('invisible');
+        }else{
+            project.classList.add('invisible');
+        }
+
+    }) 
+        projectContainer.classList.remove('anim-out');
+   }, 300);
+})
+
 
 
 function scrollToSelector(selection){
